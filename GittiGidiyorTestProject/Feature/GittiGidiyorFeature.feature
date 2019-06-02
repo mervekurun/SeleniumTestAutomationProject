@@ -8,7 +8,7 @@ Scenario: GittiGidiyorTest
 * GittiGidiyor.com açılır
 * Login yapılır
 * Kullanıcı adı 'merve_kurun@hotmail.com' girilir
-* Şifre adı '*****' girilir
+* Şifre adı '******' girilir
 * Giriş yapılır
 * Bebek,Anne kategorisinin üzerine gelinir
 * Biberon Maması linkine tıklanır
