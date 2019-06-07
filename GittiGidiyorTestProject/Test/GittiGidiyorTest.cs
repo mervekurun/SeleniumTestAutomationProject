@@ -1,5 +1,7 @@
 ﻿using GittiGidiyorTestProject.PageModel;
 using NUnit.Framework;
+using OpenQA.Selenium;
+using OpenQA.Selenium.Chrome;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,8 +14,18 @@ namespace GittiGidiyorTestProject.Test
     [Binding, Scope(Feature = "GittiGidiyorFeature")]
     public class GittiGidiyorTest
     {
-       GittiGidiyorPage gittiGidiyor=new GittiGidiyorPage();
-
+        
+        GittiGidiyorPage gittiGidiyor;
+        IWebDriver driver = new ChromeDriver();
+        [Before]
+        public void Before() 
+        {
+         
+         gittiGidiyor = new GittiGidiyorPage(driver);
+         driver.Navigate().GoToUrl("https://www.gittigidiyor.com/");
+         TimeSpan.FromSeconds(50);
+           
+        }
        [StepDefinition("GittiGidiyor.com açılır")]
         public void LaunchHomePage()
         {
@@ -52,10 +64,15 @@ namespace GittiGidiyorTestProject.Test
         {
             gittiGidiyor.ClickCategory();
         }
-        [StepDefinition("Fiyat seçilir")]
+        [StepDefinition("Fiyat aralığı seçilir")]
         public void SelectPrice()
         {
             gittiGidiyor.SelectPrice();
+        }
+        [StepDefinition("Ücretsiz Kargo seçilir")]
+        public void ClickCargo()
+        {
+            gittiGidiyor.ClickCargo();
         }
         [StepDefinition("ikinci ürün seçilir")]
         public void SelectProduct()
@@ -67,10 +84,45 @@ namespace GittiGidiyorTestProject.Test
         {
             gittiGidiyor.ClickAddToBasket();
         }
-        [StepDefinition("Alışveriş tamamlanır")]
+        [StepDefinition("Alışveriş tamamlaya tıklanır")]
         public void ClickCompleteShopping()
         {
             gittiGidiyor.ClickCompleteShopping();
+        }
+        [StepDefinition("Ad '(.*)' yazılır")]
+        public void SetName(string name)
+        {
+            gittiGidiyor.SetName(name);
+        }
+        [StepDefinition("Soyad '(.*)' yazılır")]
+        public void SetSurname(string surName)
+        {
+            gittiGidiyor.SetSurname(surName);
+        }
+        [StepDefinition("Şehir '(.*)' seçilir")]
+        public void SetCity(string city)
+        {
+            gittiGidiyor.SetCity(city);
+        }
+        [StepDefinition("İlçe '(.*)' seçilir")]
+        public void SetDistrict(string district)
+        {
+            gittiGidiyor.SetDistrict(district);
+        }
+        [StepDefinition("Adres '(.*)' girilir")]
+        public void SetAddress(string adress)
+        {
+            gittiGidiyor.SetAddress(adress);
+        }
+        [StepDefinition("Telefon Numarası '(.*)' girilir")]
+        public void SetPhoneNumber(string phoneNumber)
+        {
+            gittiGidiyor.SetPhoneNumber(phoneNumber);
+        }
+        [StepDefinition("Kaydet ve Devam Et tıklanır")]
+        public void ClickPostAdress()
+        {
+            gittiGidiyor.ClickPostAdress();
         }
         [StepDefinition("Adres seçilir")]
         public void SelectAddress()
@@ -97,19 +149,22 @@ namespace GittiGidiyorTestProject.Test
         {
             gittiGidiyor.SetDate(cartMonth, cartYear);
         }
-
-        /*[StepDefinition("Mama tipi seçilir")]
-         public void SelectType()
-         {
-             gittiGidiyor.SelectType();
-         }*/
-
-
-
-
-
-
-
+        [StepDefinition("Güvenlik Kodu '(.*)' girilir")]
+        public void SetCvcNumber(string cvcNumber)
+        {
+            gittiGidiyor.SetCvcNumber(cvcNumber);
+        }
+        [StepDefinition("Ödeme Yap tıklanır")]
+        public void ClickBuyProduct()
+        {
+            gittiGidiyor.ClickBuyProduct();
+        }
+               
+       [After]
+        public void Close()
+        {
+           driver.Close();
+        }
     }
 
 

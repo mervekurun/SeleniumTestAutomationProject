@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using NUnit.Framework;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.PageObjects;
@@ -8,13 +9,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TechTalk.SpecFlow;
 
 namespace GittiGidiyorTestProject.PageModel
 {
-    public class GittiGidiyorPage
+    [Binding]
+    [TestFixture]
+    public class GittiGidiyorPage : Model
     {
         #region
-        IWebDriver driver = new ChromeDriver();
+        //IWebDriver driver = new ChromeDriver();
 
         ChromeOptions chromeOptions = new ChromeOptions();
 
@@ -22,7 +26,7 @@ namespace GittiGidiyorTestProject.PageModel
         public IWebElement btnLogin;
 
         public IWebElement btnClosePopUp;
-                 
+
         public IWebElement txtUserName;
 
         public IWebElement txtLastName;
@@ -54,125 +58,164 @@ namespace GittiGidiyorTestProject.PageModel
         public IWebElement txtMonth;
 
         public IWebElement txtYear;
+
+        public IWebElement txtCVCNumber;
+
+        public IWebElement chc3DSecure;
+
+        public IWebElement btnBuyProduct;
+
+        public IWebElement txtName;
+
+        public IWebElement txtSurname;
+
+        public IWebElement txtCity;
+
+        public IWebElement txtDistrict;
+
+        public IWebElement txtAdress;
+
+        public IWebElement txtPhoneNumber;
+
+        public IWebElement btnPostAdress;
+
+        public IWebElement tbCargo;
+
+        public IWebElement btnCargo;
         #endregion
+
+        public GittiGidiyorPage(IWebDriver driver):base(driver){
+
+        }
         public void LaunchHomePage()
         {
-
-            driver.Navigate().GoToUrl("https://www.gittigidiyor.com/");
-            btnClosePopUp =driver.FindElement(By.Id("gg-subscribe-close-button"));
-            btnClosePopUp.Click();
-            TimeSpan.FromSeconds(50);
+            Click(Find((By.Id("gg-subscribe-close-button"))));
             chromeOptions.AddArguments("disable-popup-blocking");
             
         }
        
         public void Login()
         {
-
-            btnLogin = driver.FindElement(By.ClassName("profile-name"));
-            btnLogin.Click();
+             Click(Find(By.ClassName("profile-name")));
         }
         public void SetUserName(string parameter)
         {
-            txtUserName = driver.FindElement(By.Id("L-UserNameField"));
-            txtUserName.SendKeys(parameter);
+            SetText(Find(By.Id("L-UserNameField")), parameter);
         }
         public void SetLastName(string parameter)
         {
-            txtLastName = driver.FindElement(By.Id("L-PasswordField"));
-            txtLastName.SendKeys(parameter);
+            SetText(Find(By.Id("L-PasswordField")), parameter);
         }
         public void ClickLoginEnter()
         {
-            btnLogin = driver.FindElement(By.Id("gg-login-enter"));
-            btnLogin.Click();
+            Click(Find(By.Id("gg-login-enter")));
         }
         public void CheckCaptcha()
         {
-            chcCaptcha = driver.FindElement(By.Id("recaptcha-checkbox-border"));
-            chcCaptcha.Click();
+            Click(Find(By.Id("recaptcha-checkbox-border")));
         }
         public void MouseOverCategory()
         {
-            Actions builder = new Actions(driver);
-            btnCategory = driver.FindElement(By.CssSelector("#header_wrapper > div.hidden-m.hidden-t.horizontal-menu.robot-header-horizontalMenu-container.gg-d-24.gg-w-24 > div:nth-child(5) > p"));
-            builder.MoveToElement(btnCategory).Click().Build().Perform();
+            Hover(Find(By.CssSelector("#header_wrapper > div.hidden-m.hidden-t.horizontal-menu.robot-header-horizontalMenu-container.gg-d-24.gg-w-24 > div:nth-child(5) > p")));
+            
         }
         public void ClickCategory()
         {
-            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(150));
-            IWebElement element = wait.Until(ExpectedConditions.ElementIsVisible(By.CssSelector("#header_wrapper > div.hidden-m.hidden-t.horizontal-menu.robot-header-horizontalMenu-container.gg-d-24.gg-w-24 > div:nth-child(5) > div > div:nth-child(2) > div:nth-child(2) > a:nth-child(2)")));
-            element.Click();
+            Click(Find(By.CssSelector("#header_wrapper > div.hidden-m.hidden-t.horizontal-menu.robot-header-horizontalMenu-container.gg-d-24.gg-w-24 > div:nth-child(5) > div > div:nth-child(2) > div:nth-child(2) > a:nth-child(2)")));
         }
-        public void ScrollDown(int parameter)
-        {
-            IJavaScriptExecutor js=driver as IJavaScriptExecutor;
-            TimeSpan.FromSeconds(30);
-            js.ExecuteScript("window.scrollTo(0, "+parameter+");");
-        }
+        
         public void SelectPrice()
         {
-            ScrollDown(500);
-            chkPrice = driver.FindElement(By.CssSelector("#best-match-left > div:nth-child(4) > div > ul.filter_search_narrow_features.price-range-options > li:nth-child(3) > div > div"));
-            TimeSpan.FromSeconds(100); 
-            chkPrice.Click();
+            
+            chkPrice = Find(By.CssSelector("#best-match-left > div:nth-child(4) > div > ul.filter_search_narrow_features.price-range-options > li:nth-child(3) > div > div"));
+            ScrollDown(chkPrice);
+            Click(chkPrice);
         }
-        /*public void SelectType()
-        {
-            ScrollDown(1200);
-            chkType = driver.FindElement(By.XPath("//*[@id='best - match - left']/div[9]/div/ul/li[3]/div/span/div/label"));
-            ScrollDown(chkType.Location.Y);
-            chkType.Click();
-        }*/
 
         public void SelectProduct()
         {
-            ScrollDown(500);
-            btnProduct = driver.FindElement(By.XPath("//*[@id='product_id_421250356']"));
-            btnProduct.Click();
+            
+            btnProduct = Find(By.XPath("//*[@id='product_id_421250356']"));
+            ScrollDown(btnProduct);
+            Click(btnProduct);
         }
         public void ClickAddToBasket()
-        {
-            ScrollDown(300);
-            btnAddToBasket = driver.FindElement(By.Id("add-to-basket"));
-            btnAddToBasket.Click();
+        {            
+            btnAddToBasket = Find(By.Id("add-to-basket"));
+            ScrollDown(btnAddToBasket);
+            Click(btnAddToBasket);
         }
         public void ClickCompleteShopping()
         {
-            btnCompleteShopping = driver.FindElement(By.CssSelector("#submit-cart > div > div > div.gg-w-7.gg-d-8.gg-t-8.gg-m-24.right-box-container > div > div > div > div:nth-child(5) > input"));
-            btnCompleteShopping.Click();
+            Click(Find(By.CssSelector("#submit-cart > div > div > div.gg-w-7.gg-d-8.gg-t-8.gg-m-24.right-box-container > div > div > div > div:nth-child(5) > input")));
         }
         public void SelectAddress()
         {
-            btnAdress = driver.FindElement(By.Id("item-7053495"));
-            btnAdress.Click();
+            Click(Find(By.Id("item-7053495")));
         }
         public void ClickPostAddress()
         {
-            btnAdressPost = driver.FindElement(By.Id("post-address-form"));
-            btnAdressPost.Click();
+            Click(Find(By.Id("post-address-form")));
         }
         public void SetCreditCartNumber(string parameter)
         {
-            txtCreditCartNumber = driver.FindElement(By.Id("P-CCNumberField"));
-            txtCreditCartNumber.SendKeys(parameter);
+            SetText(Find(By.Id("P-CCNumberField")), parameter);
         }
         public void SetOwnerName(string parameter)
         {
-            txtOwnerName = driver.FindElement(By.Id("P-CCOwnerName"));
-            txtOwnerName.SendKeys(parameter);
+            SetText(Find(By.Id("P-CCOwnerName")), parameter);
         }
         public void SetDate(string parameter1,string parameter2)
         {
-            txtMonth = driver.FindElement(By.Id("P-CCMonthSelect"));
-            txtYear = driver.FindElement(By.Id("P-CCYearSelect"));
-            txtMonth.SendKeys(parameter1);
-            txtYear.SendKeys(parameter2);
+            SetText(Find(By.Id("P-CCMonthSelect")), parameter1);
+            SetText(Find(By.Id("P-CCYearSelect")), parameter2);
         }
-        
-
-
-
+        public void SetCvcNumber(string parameter)
+        {
+            SetText(Find(By.Id("P-CVCNumberField")), parameter);
+        }
+        public void Click3DSecure()
+        {
+            Click(Find(By.Id("secure3D")));
+        }
+        public void ClickBuyProduct()
+        {
+            Click(Find(By.Id("BuyProduct")));
+        }
+        public void SetName(string parameter)
+        {
+            SetText(Find(By.Name("Name")), parameter);
+        }
+        public void SetSurname(string parameter)
+        {
+            SetText(Find(By.Name("SurName")), parameter);
+        }
+        public void SetCity(string parameter)
+        {
+            SetText(Find(By.Name("City")), parameter);
+        }
+        public void SetDistrict(string parameter)
+        {
+            SetText(Find(By.Name("District")), parameter);
+        }
+        public void SetAddress(string parameter)
+        {
+            SetText(Find(By.Name("Address")), parameter);
+        }
+        public void SetPhoneNumber(string parameter)
+        {
+            SetText(Find(By.Name("phone-number")), parameter);
+        }
+        public void ClickPostAdress()
+        {
+            Click(Find(By.ClassName("gg-ui-btn gg-ui-btn-blue gg-btn post-address")));
+        }
+        public void ClickCargo()
+        {
+            ScrollDown(Find(By.Id("search-page-tab-free-shipping")));
+            Click(Find(By.Id("search-page-tab-free-shipping")));
+            
+        }
 
 
     }

@@ -85,9 +85,9 @@ testRunner.And("GittiGidiyor.com açılır", ((string)(null)), ((TechTalk.SpecFl
 #line 9
 testRunner.And("Login yapılır", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
 #line 10
-testRunner.And("Kullanıcı adı \'merve_kurun@hotmail.com\' girilir", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
+testRunner.And("Kullanıcı adı \'username\' girilir", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
 #line 11
-testRunner.And("Şifre adı \'2318921\' girilir", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
+testRunner.And("Şifre adı \'password\' girilir", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
 #line 12
 testRunner.And("Giriş yapılır", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
 #line 13
@@ -95,23 +95,93 @@ testRunner.And("Bebek,Anne kategorisinin üzerine gelinir", ((string)(null)), ((
 #line 14
 testRunner.And("Biberon Maması linkine tıklanır", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
 #line 15
-testRunner.And("Fiyat seçilir", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
+testRunner.And("Fiyat aralığı seçilir", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
 #line 16
-testRunner.And("ikinci ürün seçilir", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
+testRunner.And("Ücretsiz Kargo seçilir", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
 #line 17
-testRunner.And("Sepete eklenir", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
+testRunner.And("ikinci ürün seçilir", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
 #line 18
-testRunner.And("Alışveriş tamamlanır", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
+testRunner.And("Sepete eklenir", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
 #line 19
-testRunner.And("Adres seçilir", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
+testRunner.And("Alışveriş tamamlaya tıklanır", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
 #line 20
-testRunner.And("Devam Et butonuna tıklanır", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
+testRunner.And("Ad \'Merve\' yazılır", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
 #line 21
-testRunner.And("Kredi Kartı numarası \'635456663573654653\' girilir", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
+testRunner.And("Soyad \'Kurun\' yazılır", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
 #line 22
-testRunner.And("Ad Soyad \'Merve Kurun\' girilir", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
+testRunner.And("Şehir \'İstanbul\' seçilir", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
 #line 23
+testRunner.And("İlçe \'Kağıthane\' seçilir", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
+#line 24
+testRunner.And("Adres \'İstanbul-Kağıthane\' girilir", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
+#line 25
+testRunner.And("Telefon Numarası \'1234567\' girilir", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
+#line 26
+testRunner.And("Kaydet ve Devam Et tıklanır", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
+#line 27
+testRunner.And("Devam Et butonuna tıklanır", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
+#line 28
+testRunner.And("Kredi Kartı numarası \'1234567890122345\' girilir", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
+#line 29
+testRunner.And("Ad Soyad \'Merve Kurun\' girilir", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
+#line 30
 testRunner.And("Son Kullanma ayı \'01\' yılı \'2020\' girilir", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
+#line 31
+testRunner.And("Güvenlik Kodu \'123\' girilir", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
+#line 32
+testRunner.And("Ödeme Yap tıklanır", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("GittiGidiyorTestWithAdress")]
+        [NUnit.Framework.CategoryAttribute("gittigidiyorWithAddAddress")]
+        public virtual void GittiGidiyorTestWithAdress()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("GittiGidiyorTestWithAdress", null, new string[] {
+                        "gittigidiyorWithAddAddress"});
+#line 35
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 36
+testRunner.And("GittiGidiyor.com açılır", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
+#line 37
+testRunner.And("Login yapılır", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
+#line 38
+testRunner.And("Kullanıcı adı \'username\' girilir", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
+#line 39
+testRunner.And("Şifre adı \'password\' girilir", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
+#line 40
+testRunner.And("Giriş yapılır", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
+#line 41
+testRunner.And("Bebek,Anne kategorisinin üzerine gelinir", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
+#line 42
+testRunner.And("Biberon Maması linkine tıklanır", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
+#line 43
+testRunner.And("Fiyat aralığı seçilir", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
+#line 44
+testRunner.And("Ücretsiz Kargo seçilir", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
+#line 45
+testRunner.And("ikinci ürün seçilir", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
+#line 46
+testRunner.And("Sepete eklenir", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
+#line 47
+testRunner.And("Alışveriş tamamlaya tıklanır", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
+#line 48
+testRunner.And("Adres seçilir", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
+#line 49
+testRunner.And("Devam Et butonuna tıklanır", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
+#line 50
+testRunner.And("Kredi Kartı numarası \'1234567890122345\' girilir", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
+#line 51
+testRunner.And("Ad Soyad \'Merve Kurun\' girilir", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
+#line 52
+testRunner.And("Son Kullanma ayı \'01\' yılı \'2020\' girilir", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
+#line 53
+testRunner.And("Güvenlik Kodu \'123\' girilir", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
+#line 54
+testRunner.And("Ödeme Yap tıklanır", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
 #line hidden
             this.ScenarioCleanup();
         }
