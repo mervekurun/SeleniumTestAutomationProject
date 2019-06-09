@@ -213,8 +213,7 @@ namespace GittiGidiyorTestProject.PageModel
         public void ClickCargo()
         {
             ScrollDown(Find(By.Id("search-page-tab-free-shipping")));
-            Click(Find(By.Id("search-page-tab-free-shipping")));
-            
+            Click(Find(By.Id("search-page-tab-free-shipping"))); 
         }
 
 

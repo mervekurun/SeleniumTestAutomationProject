@@ -41,8 +41,5 @@ namespace GittiGidiyorTestProject.PageModel
             Actions builder = new Actions(driver);
             builder.MoveToElement(element).Click().Build().Perform();
         }
-        
-
-
     }
 }
